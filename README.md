@@ -5,6 +5,7 @@ Neural Network Chess Engine in Python
 Training data is taken from here:
 * http://www.top-5000.nl/pgn.htm
 * http://www.kingbase-chess.net/
+* http://www.ficsgames.org/download.html
 
 All boards are fed into both gnuchess and stockfish to create additional possible moves.
 
