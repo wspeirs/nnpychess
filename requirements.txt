@@ -1,3 +1,4 @@
 # PyChess-Anderssen
 tensorflow
 python-chess
+numpy
