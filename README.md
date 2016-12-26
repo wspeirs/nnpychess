@@ -13,4 +13,3 @@ All boards are fed into both gnuchess and stockfish to create additional possibl
 Testing is done using these sets and against gnuchess and stockfish:
 * https://chessprogramming.wikispaces.com/Strategic+Test+Suite
 
-
