@@ -19,10 +19,6 @@ WHITE_VALUES = {
 BLACK_VALUES = {k: v*-1 for k,v in WHITE_VALUES.items() }
 
 
-def open_pgn(file_name):
-    return open(file_name)
-
-
 def fen_to_array(board):
     fen = board.fen()
     (pieces, turn, _) = fen.split(' ', 2)
@@ -54,14 +50,15 @@ def move_to_int(move):
     return (move.from_square << 8) + move.to_square
 
 
-def generate_next_boards(pgn):
-    game = read_game(pgn)
+def generate_next_boards(pgn_handle):
+    game = read_game(pgn_handle)
 
     variations = game.variations
 
     count = 1
 
-    ret = []
+    boards = []
+    moves = []
 
     while variations:
         # print(str(count) + ": " + str(variations[0].move))
@@ -73,10 +70,10 @@ def generate_next_boards(pgn):
         variations = variations[0].variations
         count += 1
 
-        if not variations:
-            break
-        else:
+        if variations:
             move = move_to_int(variations[0].move)
-            ret.append((array, [move]), )
+            boards.append(array)
+            moves.append(move)
 
-    return ret
+    return boards, moves
+
